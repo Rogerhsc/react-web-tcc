@@ -1,20 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ViewServicos from './components/viewServicos/index';
+import Routes from './routes';
 
 function App() {
   return (
-    <div className="container">
-      <div className="content">
-        <div className="rowContent">
-          <div className="itemContent">
-            teste
-          </div>
-          <div className="itemContent">
-            teste
-          </div>
-        </div>
-      </div>
+    <div>
+      <Routes></Routes>
     </div>
   );
 }
