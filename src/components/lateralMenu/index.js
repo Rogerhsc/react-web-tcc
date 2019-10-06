@@ -30,8 +30,8 @@ export default class LateralMenu extends Component {
           </div>
         </Link>
 
-        <Link>
-          <div className="menuItem" to={"/"}>
+        <Link to={"/"}>
+          <div className="menuItem" >
             <b>Serviços</b>
             <Widgets fontSize="large"></Widgets>
           </div>
