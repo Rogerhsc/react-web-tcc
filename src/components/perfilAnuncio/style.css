@@ -12,3 +12,31 @@
     padding: 2%;
     text-align: justify;
 }
+.perfilAnuncioRealizado{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+}
+.perfilAnuncioRealizado::-webkit-scrollbar{
+    height: 8px;
+    background-color: #F5F5F5;
+ 
+}
+.perfilAnuncioRealizado::-webkit-scrollbar-thumb{
+    background-color: rgb(192, 192, 192);
+    border-radius: 8px;
+    transition-delay: 0.4s;
+}
+.perfilAnuncioRealizado::-webkit-scrollbar-thumb:active{
+    background-color: rgb(27, 27, 27);
+}
+
+
+.perfilAnuncioRealizado img {
+    width: 80px;
+    height: 80px;
+    margin: 0% 1% 0% 1%;
+}
