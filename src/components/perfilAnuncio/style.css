@@ -1,0 +1,14 @@
+.perfilAnuncioTxtNome{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+}
+
+.perfilAnuncioDesc{
+    background-color: white;
+    padding: 2%;
+    text-align: justify;
+}

@@ -1,57 +1,57 @@
 {
     "works": [
         {
-            "id": 1,
+            "id": "mecanica",
             "name": "Mecânica",
             "img": ""
         },
         {
-            "id": 2,
+            "id": "construcao",
             "name": "Construção",
             "img": ""
         },
         {
-            "id": 3,
+            "id": "saude",
             "name": "Saúde",
             "img": ""
         },
         {
-            "id": 4,
+            "id": "educacao",
             "name": "Educação",
             "img": ""
         },
         {
-            "id": 5,
+            "id": "informaticc",
             "name": "Informatica",
             "img": ""
         },
         {
-            "id": 6,
+            "id": "domesticos",
             "name": "Domésticos",
             "img": ""
         },
         {
-            "id": 7,
+            "id": "eletronicos",
             "name": "Eletronicos",
             "img": ""
         },
         {
-            "id": 8,
+            "id": "eletrodosmesticos",
             "name": "Eletrodomesticos",
             "img": ""
         },
         {
-            "id": 9,
+            "id": "eventos",
             "name": "Eventos",
             "img": ""
         },
         {
-            "id": 10,
+            "id": "social",
             "name": "Social",
             "img": ""
         },
         {
-            "id": 11,
+            "id": "outros",
             "name": "Outros",
             "img": ""
         }

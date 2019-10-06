@@ -27,6 +27,7 @@ export default class ViewServicos extends Component {
             })}
           </div>
         </div>
+        <footer></footer>
       </div>
     );
   }
