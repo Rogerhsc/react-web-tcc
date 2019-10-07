@@ -121,7 +121,7 @@
     border-radius: 15px;
     color: white;
     cursor: pointer;
-    margin-top: 3%;
+    margin-top: 10%;
 }
 .customButtom-one:active{
     background-color: rgb(0, 106, 255);

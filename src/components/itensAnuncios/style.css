@@ -2,7 +2,7 @@
 {
     background-color: white;
     border: 2px solid #cacaca;
-    border-radius: 8%;
+    border-radius:12px;
     display: flex;
     flex-grow: 8;
     width: 85%;
