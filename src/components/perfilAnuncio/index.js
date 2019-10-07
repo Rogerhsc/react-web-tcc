@@ -41,9 +41,15 @@ export default class PerfilAnuncio extends Component {
         </b></p>
         </div>
         <div className="perfilAnuncioRealizado">
-          <Link>
-            <img src={require("../../image/defaultImg.png")} />
-          </Link>
+          <img src={require("../../image/defaultImg.png")} />
+          <img src={require("../../image/defaultImg.png")} />
+          <img src={require("../../image/defaultImg.png")} />
+          <img src={require("../../image/defaultImg.png")} />
+          <img src={require("../../image/defaultImg.png")} />
+          <img src={require("../../image/defaultImg.png")} />
+          <img src={require("../../image/defaultImg.png")} />
+          <img src={require("../../image/defaultImg.png")} />
+          
         </div>
         <div className="perfilAvaliacao">
           <div className="txtTipoServico">
