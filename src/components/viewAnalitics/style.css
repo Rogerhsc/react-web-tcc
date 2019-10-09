@@ -66,8 +66,7 @@
     margin-top: 8%;
     border-radius: 8px;
     border: 1px solid #b4b4b4;
-    align-items: center;
-    justify-content: center;
+
 }
 .dataBox{
     display: flex;
@@ -87,7 +86,6 @@
 .dataBox::-webkit-scrollbar{
     height: 5px;
     width: 7px;
-    
     background-color: #F5F5F5;
  
 }

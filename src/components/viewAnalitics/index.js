@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './style.css'
 import Header from './../header/index';
 import ButtonGraph from '../buttonGraph';
+import Graph from '../graph';
 export default class Analitics extends Component {
   render() {
     return (
@@ -18,8 +19,8 @@ export default class Analitics extends Component {
         <div className="contentComponents">
           <div className="buttonGrapsContent">
             <div className="buttonGraps">
-              teste
-          </div>
+              <Graph></Graph>
+            </div>
           </div>
 
           <div className="txtLabel">
