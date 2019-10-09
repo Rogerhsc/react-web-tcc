@@ -7,22 +7,22 @@ import {
     YAxis,
     CartesianGrid,
     Tooltip,
-    Legend
+    Legend,
 } from 'recharts';
 
 
 const data = [
-    { name: 'Semana 1', Recebimentos: 800},
-    { name: 'Semana 2', Recebimentos: 1398 },
-    { name: 'Semana 3', Recebimentos: 550},
-    { name: 'Semana 4', Recebimentos: 2500 },
+    { name: 'Semana 1', Recebimentos: 800 },
+    { name: 'Semana 2', Recebimentos: 1398},
+    { name: 'Semana 3', Recebimentos: 550 },
+    { name: 'Semana 4', Recebimentos: 2500},
 ];
 export default class Graph extends Component {
     render() {
         return (
             <div>
                 <LineChart
-                    width={450}
+                    width={380}
                     height={275}
                     data={data}
                     margin={{top: 45, right: 5}}
@@ -33,7 +33,7 @@ export default class Graph extends Component {
                         stroke='#ff6600'
                         activeDot={{ r: 8 }}
                     />
-                    <CartesianGrid strokeDasharray='1 3' />
+                    <CartesianGrid strokeDasharray='3 3' />
                     <Tooltip />
                     <YAxis />
                     <XAxis dataKey='name' />
