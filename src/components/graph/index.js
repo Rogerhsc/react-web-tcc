@@ -25,7 +25,7 @@ export default class Graph extends Component {
                     width={450}
                     height={275}
                     data={data}
-                    margin={{top: 20, right: 20}}
+                    margin={{top: 45, right: 14}}
                 >
                     <Line
                         type='monotone'
