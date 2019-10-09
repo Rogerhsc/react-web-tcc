@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './style.css'
 import Header from './../header/index';
+import ButtonGraph from '../buttonGraph';
 export default class Analitics extends Component {
   render() {
     return (
@@ -14,12 +15,49 @@ export default class Analitics extends Component {
             <a>Você no controle da sua vida!!</a>
           </div>
         </div>
-        <div className="buttonGrapsContent">
-          <div className="buttonGraps">
-            teste
+        <div className="contentComponents">
+          <div className="buttonGrapsContent">
+            <div className="buttonGraps">
+              teste
+          </div>
+          </div>
+
+          <div className="txtLabel">
+            Recebimentos Mensais
+          </div>
+
+          <div className="buttonGrapsContent">
+            <div className="dataBox">
+              <ButtonGraph label={"Mecanica"} val={"500"}></ButtonGraph>
+              <ButtonGraph label={"Mecanica"} val={"500"}></ButtonGraph>
+              <ButtonGraph label={"Mecanica"} val={"500"}></ButtonGraph>
+              <ButtonGraph label={"Mecanica"} val={"500"}></ButtonGraph>
+              <ButtonGraph label={"Mecanica"} val={"500"}></ButtonGraph>
+              <ButtonGraph label={"Mecanica"} val={"500"}></ButtonGraph>
+              <ButtonGraph label={"Mecanica"} val={"500"}></ButtonGraph>
+            </div>
+          </div>
+
+          <div className="txtLabel">
+            Serviços Prestados
+          </div>
+
+          <div className="buttonGrapsContent">
+            <div className="dataBox">
+              <ButtonGraph label={"Mecanica"} val={"500"}></ButtonGraph>
+              <ButtonGraph label={"Mecanica"} val={"500"}></ButtonGraph>
+              <ButtonGraph label={"Mecanica"} val={"500"}></ButtonGraph>
+              <ButtonGraph label={"Mecanica"} val={"500"}></ButtonGraph>
+              <ButtonGraph label={"Mecanica"} val={"500"}></ButtonGraph>
+              <ButtonGraph label={"Mecanica"} val={"500"}></ButtonGraph>
+              <ButtonGraph label={"Mecanica"} val={"500"}></ButtonGraph>
+              <ButtonGraph label={"Mecanica"} val={"500"}></ButtonGraph>
+            </div>
           </div>
         </div>
+        <footer></footer>
       </div>
+
     )
   }
 }

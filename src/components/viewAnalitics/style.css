@@ -6,6 +6,29 @@
     flex-direction: column;
     height: 250px;
 }
+.txtLabel {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    height: auto;
+    flex-direction: column;
+    color: white;
+    font-size: 22px;
+    margin: 5% 0% 5% 0%;
+    padding-top: 3%;
+    border-top: 1px solid white;
+}
+.contentComponents{
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 5%; 
+    background-color: #ff6600;
+}
 .title{
     display: flex;
     width: 95%;
@@ -31,7 +54,49 @@
     background-color: #ff6600;
     display: flex;
     width: 100%;
+    height: auto;
+    align-items: center;
+    flex-direction: column;
+}
+.buttonGraps {
+    display: flex;
+    width: 95%;
     height: 300px;
+    background-color: white;
+    margin-top: 8%;
+    border-radius: 8px;
+    border: 1px solid #b4b4b4;
+    align-items: center;
     justify-content: center;
+}
+.dataBox{
+    display: flex;
+    width: 95%;
+    height: auto;
+    min-height: 250px;
+    max-height: 250px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #b4b4b4;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: scroll;
+    flex-direction: column;
+}
 
+.dataBox::-webkit-scrollbar{
+    height: 5px;
+    width: 7px;
+    
+    background-color: #F5F5F5;
+ 
+}
+.dataBox::-webkit-scrollbar-thumb{
+    background-color: rgb(192, 192, 192);
+    border-radius: 8px;
+    
+    transition-delay: 0.4s;
+}
+.dataBox::-webkit-scrollbar-thumb:active{
+    background-color: rgb(27, 27, 27);
 }
