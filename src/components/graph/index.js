@@ -20,12 +20,12 @@ const data = [
 export default class Graph extends Component {
     render() {
         return (
-            <div>
+            <div className="graphContainer">
                 <LineChart
-                    width={380}
+                    width={385}
                     height={275}
                     data={data}
-                    margin={{top: 45, right: 5}}
+                    margin={{top: 45, right: 2}}
                 >
                     <Line
                         type='monotone'
