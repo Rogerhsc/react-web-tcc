@@ -30,7 +30,7 @@ export default class Graph extends Component {
                     <Line
                         type='monotone'
                         dataKey='Recebimentos'
-                        stroke='#8884d8'
+                        stroke='#ff6600'
                         activeDot={{ r: 8 }}
                     />
                     <CartesianGrid strokeDasharray='3 3' />
