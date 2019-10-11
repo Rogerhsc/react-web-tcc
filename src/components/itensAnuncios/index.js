@@ -14,7 +14,7 @@ export default class ItensAnuncios extends Component {
             <b>Nome do cidado</b><br />
             Especialidade: <br />
             Idade: <br />
-            Valor:
+            Valor: <br />
         </div>
         </Link>
       </div>

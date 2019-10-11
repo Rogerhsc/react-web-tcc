@@ -22,11 +22,12 @@ export default class Graph extends Component {
     render() {
         return (
             <div className="graphContainer">
-                <ResponsiveContainer width="94%" height="100%">
+                <ResponsiveContainer width="100%" height="100%">
                     <LineChart
                         width={385}
                         height={275}
                         data={data}
+                        fontSize={12}
                         margin={{ top: 45, right: 5 }}
                     >
                         <Line

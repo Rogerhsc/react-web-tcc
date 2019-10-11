@@ -59,6 +59,7 @@
     flex-direction: column;
 }
 .buttonGraps {
+
     display: flex;
     width: 95%;
     height: 300px;
@@ -66,7 +67,10 @@
     margin-top: 8%;
     border-radius: 8px;
     border: 1px solid #b4b4b4;
-
+}
+.buttonGraps:active{
+    background-color: #ff6600;
+    color: white;
 }
 .dataBox{
     display: flex;
