@@ -9,10 +9,11 @@ import ItensServico from "./../itensServicos/index";
 let works = Data.works;
 
 export default class ViewServicos extends Component {
+
   render() {
     return (
       <div className="container">
-        <Header></Header>
+        <Header userId={this.props.match.params.userId}></Header>
         <div className="content">
           <div className="rowContent">
             {works.map((v, i) => {
@@ -22,6 +23,7 @@ export default class ViewServicos extends Component {
                   itenName={v.name}
                   itenImg={"defaultImg.png"}
                   route={v.id}
+                  userId={this.props.match.params.userId}
                 ></ItensServico>
               );
             })}

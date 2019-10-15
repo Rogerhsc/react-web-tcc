@@ -6,10 +6,10 @@ export default class ViewAnuncios extends Component {
   render() {
     return (
       <div className="container">
-        <ReturnHeader lastRoute={"/"}></ReturnHeader>
+        <ReturnHeader lastRoute={`/${this.props.match.params.userId}`}></ReturnHeader>
         <div className="content">
           <div className="rowContent">
-            <ItensAnuncios categoria={this.props.match.params.categoria} anuncio={"10"}></ItensAnuncios>
+            <ItensAnuncios userId={this.props.match.params.userId} categoria={this.props.match.params.categoria} anuncio={"10"}></ItensAnuncios>
           </div>
         </div>
         <footer></footer>

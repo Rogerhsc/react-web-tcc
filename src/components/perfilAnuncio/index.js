@@ -7,11 +7,14 @@ import Rating from "@material-ui/lab/Rating";
 import { GroupAdd, AttachMoney, Chat, HowToReg } from "@material-ui/icons";
 
 export default class PerfilAnuncio extends Component {
+  componentDidMount(){
+    debugger;
+  }
   render() {
     return (
       <div className="containerMenu">
         <ReturnHeader
-          lastRoute={`/servicos/${this.props.match.params.categoria}`}
+          lastRoute={`${this.props.match.params.userId}/servicos/${this.props.match.params.categoria}`}
         ></ReturnHeader>
         <div className="perfilAvaliacao">
           <div className="perfilStars">

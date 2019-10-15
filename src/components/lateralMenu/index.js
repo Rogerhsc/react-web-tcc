@@ -23,14 +23,14 @@ export default class LateralMenu extends Component {
         <div className="perfilImage">
           <img src={require("../../image/defaultImg.png")}></img>
         </div>
-        <Link to={`/analitcs/${1}`}>
+        <Link to={`analitcs`}>
           <div className="menuItem">
             <b>Analitics</b>
             <BusinessCenter fontSize="large"></BusinessCenter>
           </div>
         </Link>
 
-        <Link to={"/"}>
+        <Link to={`/${this.props.match.params.userId}`}>
           <div className="menuItem" >
             <b>Serviços</b>
             <Widgets fontSize="large"></Widgets>

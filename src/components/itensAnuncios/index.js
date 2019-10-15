@@ -15,7 +15,7 @@ export default class ItensAnuncios extends Component {
             Especialidade: <br />
             Idade: <br />
             Valor: <br />
-        </div>
+          </div>
         </Link>
       </div>
     )
