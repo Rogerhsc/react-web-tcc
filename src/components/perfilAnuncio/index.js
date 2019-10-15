@@ -14,7 +14,7 @@ export default class PerfilAnuncio extends Component {
     return (
       <div className="containerMenu">
         <ReturnHeader
-          lastRoute={`${this.props.match.params.userId}/servicos/${this.props.match.params.categoria}`}
+          lastRoute={`/${this.props.match.params.userId}/servicos/${this.props.match.params.categoria}`}
         ></ReturnHeader>
         <div className="perfilAvaliacao">
           <div className="perfilStars">
@@ -58,14 +58,10 @@ export default class PerfilAnuncio extends Component {
           </p>
         </div>
         <div className="perfilAnuncioRealizado">
-          <img src={require("../../image/defaultImg.png")} />
-          <img src={require("../../image/defaultImg.png")} />
-          <img src={require("../../image/defaultImg.png")} />
-          <img src={require("../../image/defaultImg.png")} />
-          <img src={require("../../image/defaultImg.png")} />
-          <img src={require("../../image/defaultImg.png")} />
-          <img src={require("../../image/defaultImg.png")} />
-          <img src={require("../../image/defaultImg.png")} />
+          <Link to={`${this.props.match.params.perfil}/${101516}`}>
+            <img src={require("../../image/defaultImg.png")} />
+          </Link>
+
         </div>
         <div className="perfilAvaliacao">
           <div className="txtTipoServico">
@@ -78,16 +74,18 @@ export default class PerfilAnuncio extends Component {
           </div>
         </div>
         <div className="buttonsGroup-one">
-          <Link>
-            <div className="customButtom-one">
+
+          <div className="customButtom-one">
+            <Link>
               <b>Negociar</b>
               <Chat fontSize="large"></Chat>
-            </div>
-          </Link>
-
+            </Link>
+          </div>
           <div className="customButtom-two">
-            <b>Contratar</b>
-            <HowToReg fontSize="large"></HowToReg>
+            <Link>
+              <b>Contratar</b>
+              <HowToReg fontSize="large"></HowToReg>
+            </Link>
           </div>
         </div>
         <footer></footer>
