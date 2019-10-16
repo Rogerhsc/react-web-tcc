@@ -8,9 +8,7 @@ import { Link } from "react-router-dom";
 function App() {
   return (
     <div>
-      <Routes>
-        <Link to={"/1"}></Link>
-      </Routes>
+      <Routes></Routes>
     </div>
   );
 }
