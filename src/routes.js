@@ -1,6 +1,7 @@
 import  React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
+import LoginScreen from './components/loginScreen'
 import LateralMenu from './components/lateralMenu/index';
 import ViewServicos from './components/viewServicos/index';
 import ViewAnuncios from './components/viewAnuncios/index'
@@ -12,6 +13,7 @@ import WorkComent from './components/lastWork/index';
 const Routes = () => (
     <BrowserRouter>
         <Switch>
+            <Route exact path="/" component={LoginScreen}/>
             <Route exact path="/:userId" component={ViewServicos} />
             <Route exact path="/:userId/menu" component={LateralMenu} />
             <Route exact path="/:userId/servicos/:categoria" component={ViewAnuncios}></Route>
