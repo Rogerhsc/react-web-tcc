@@ -9,12 +9,14 @@ import PerfilAnuncio from './components/perfilAnuncio/index';
 import Analitics from './components/viewAnalitics/index';
 import Chat from './components/chat/index';
 import WorkComent from './components/lastWork/index';
+import ViewCadAnuncio from './components/viewCadAnuncio/index';
 
 const Routes = () => (
     <BrowserRouter>
         <Switch>
             <Route exact path="/" component={LoginScreen}/>
             <Route exact path="/:userId" component={ViewServicos} />
+            <Route exact path="/:userId/anuncio" component={ViewCadAnuncio} />
             <Route exact path="/:userId/menu" component={LateralMenu} />
             <Route exact path="/:userId/servicos/:categoria" component={ViewAnuncios}></Route>
             <Route exact path="/:userId/servicos/:categoria/:perfil" component={PerfilAnuncio}></Route>

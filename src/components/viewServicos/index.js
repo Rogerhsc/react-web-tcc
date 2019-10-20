@@ -5,6 +5,7 @@ import "./style.css";
 import Data from "../auxFiles/work.json";
 import Header from "./../header/index";
 import ItensServico from "./../itensServicos/index";
+import { Search } from "@material-ui/icons";
 
 let works = Data.works;
 
@@ -15,6 +16,13 @@ export default class ViewServicos extends Component {
       <div className="container">
         <Header userId={this.props.match.params.userId}></Header>
         <div className="content">
+          <div className="inputWithIcon">
+            <input type="text"></input>
+            <div className="buttonIcon">
+            <Search></Search>
+            </div>
+          </div>
+
           <div className="rowContent">
             {works.map((v, i) => {
               return (

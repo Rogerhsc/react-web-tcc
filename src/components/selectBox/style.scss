@@ -1,0 +1,31 @@
+.selectBox{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    label{
+        font:{
+            size: 22px;
+            weight: bold;
+        };        
+        margin: 0px 0px 4px 0px;
+    }
+    select{
+        min-width: 100%;
+
+        min-height: 30px;
+        padding: 5%;
+        font-size: 18px;
+        border:{
+            size: 1px;
+            style: solid;
+            color: #000;
+            radius: 8px;
+        };
+        &:focus{
+            outline: none;
+        };
+        &-item {
+            background-color: olive;    
+        }
+    }
+}
