@@ -4,15 +4,19 @@ import ReturnHeader from "./../returnHeader/index";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import Rating from "@material-ui/lab/Rating";
-import { GroupAdd, AttachMoney, Chat, HowToReg } from "@material-ui/icons";
+import { GroupAdd, AttachMoney,  HowToReg } from "@material-ui/icons";
 
 export default class PerfilAnuncio extends Component {
-
+componentDidMount(){
+  debugger;
+}
   render() {
+    const params = this.props.match.params;
+
     return (
       <div className="containerMenu">
         <ReturnHeader
-          lastRoute={`/${this.props.match.params.userId}/servicos/${this.props.match.params.categoria}`}
+          lastRoute={`/${params.userId}/servicos/${params.categoria}`}
         ></ReturnHeader>
         <div className="perfilAvaliacao">
           <div className="perfilStars">
@@ -56,7 +60,7 @@ export default class PerfilAnuncio extends Component {
           </p>
         </div>
         <div className="perfilAnuncioRealizado">
-          <Link to={`${this.props.match.params.perfil}/${101516}`}>
+          <Link to={`${params.perfil}/${params.perfil}`}>
             <img src={require("../../image/defaultImg.png")} />
           </Link>
 
@@ -72,15 +76,8 @@ export default class PerfilAnuncio extends Component {
           </div>
         </div>
         <div className="buttonsGroup-one">
-
-          <div className="customButtom-one">
-            <Link>
-              <b>Negociar</b>
-              <Chat fontSize="large"></Chat>
-            </Link>
-          </div>
           <div className="customButtom-two">
-            <Link>
+            <Link to={`/${params.userId}/${params.perfil}/chat`}>
               <b>Contratar</b>
               <HowToReg fontSize="large"></HowToReg>
             </Link>
