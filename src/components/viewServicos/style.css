@@ -69,3 +69,17 @@
 .buttonIcon svg:active {
   color: black;
 }
+
+#inputSearch{
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-radius: 12px 0px 0px 12px;
+  height: 27px;
+}
+#inputSearch:focus{
+  border:transparent;
+  height: 24px;
+}

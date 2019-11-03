@@ -14,10 +14,10 @@ export default class ViewServicos extends Component {
   render() {
     return (
       <div className="container">
-        <Header userId={this.props.match.params.userId}></Header>
+        <Header userId={`${this.props.match.params.userId}`} route={`${this.props.match.params.userId}`}></Header>
         <div className="content">
           <div className="inputWithIcon">
-            <input type="text"></input>
+            <input type="text" id="inputSearch"></input>
             <div className="buttonIcon">
             <Search></Search>
             </div>

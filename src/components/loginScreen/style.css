@@ -1,0 +1,46 @@
+.contentOrange {
+  background-color: #ff6600;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 5%;
+  align-items: center;
+}
+.contentOrange input[type=email], .contentOrange input[type=password] {
+  margin-top: 5%;
+  height: 22px;
+  border-radius: 6px;
+  width: 65%;
+  border: 0px none;
+  padding: 2%;
+  font-size: 16px;
+}
+.contentOrange input[type=email]:focus, .contentOrange input[type=password]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2pt #046ffa;
+}
+.contentOrange button[type=submit] {
+  outline: none;
+  text-decoration: none;
+  border: none;
+  border-radius: 6px;
+  width: 35%;
+  height: 35px;
+  background-color: white;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+.contentOrange button[type=submit]:active {
+  background-color: #08d808;
+  color: white;
+  box-shadow: 0 0 0 1pt white;
+  border: transparent;
+}
+.contentOrange a {
+  text-decoration: none;
+  color: white;
+}
+
+/*# sourceMappingURL=style.css.map */

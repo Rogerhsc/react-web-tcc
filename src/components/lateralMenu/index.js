@@ -10,7 +10,6 @@ import {
 import { Link } from "react-router-dom";
 
 export default class LateralMenu extends Component {
-  componentDidMount() {}
 
   render() {
     return (
@@ -37,7 +36,7 @@ export default class LateralMenu extends Component {
           </div>
         </Link>
 
-        <Link to={`anuncio`}>
+        <Link to={`perfil`}>
           <div className="menuItem">
             <b>Perfil</b>
             <AccountCircle fontSize="large"></AccountCircle>
@@ -50,7 +49,6 @@ export default class LateralMenu extends Component {
             <MonetizationOn fontSize="large"></MonetizationOn>
           </div>
         </Link>
-
         <div>
           <footer></footer>
         </div>

@@ -7,7 +7,7 @@ export default class Analitics extends Component {
   render() {
     return (
       <div className="container">
-        <Header></Header>
+        <Header userId={`${this.props.match.params.userId}`} route={`${this.props.match.params.userId}/analitcs`}></Header>
         <div className="contentTituloAnalitics">
           <div className="title">
             <b>Analitics</b>

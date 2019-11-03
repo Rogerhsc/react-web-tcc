@@ -10,7 +10,7 @@ export default class Header extends Component {
           <Link
             to={{
               pathname: `/${this.props.userId}/menu`,
-              route: `/${this.props.userId}`
+              route: `/${this.props.route}`
             }}
           >
             <MenuIcon fontSize="large"></MenuIcon>

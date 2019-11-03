@@ -1,0 +1,38 @@
+.cadUser {
+  margin-top: 5%;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.cadUser label {
+  color: #7e7a7a;
+}
+.cadUser input {
+  border: 0px none;
+  border-bottom: 1px solid #ff6600;
+  border-radius: 0px;
+  height: 30px;
+  padding: 2%;
+  font-size: 16px;
+  font-weight: bold;
+}
+.cadUser input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2pt #046ffa;
+}
+
+.buttonSubmit {
+  height: 40px;
+  padding: 2%;
+  width: 70%;
+  border: 0px transparent;
+  background-color: #ff6600;
+  border-radius: 16px;
+  align-self: center;
+  color: white;
+  margin-bottom: 5%;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=style.css.map */
