@@ -37,7 +37,7 @@ export default class LateralMenu extends Component {
           </div>
         </Link>
 
-        <Link>
+        <Link to={`anuncio`}>
           <div className="menuItem">
             <b>Perfil</b>
             <AccountCircle fontSize="large"></AccountCircle>

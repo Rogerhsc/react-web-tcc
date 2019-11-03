@@ -1,3 +1,93 @@
+form {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  align-self: center;
+  background-color: #ff6600;
+}
 
+.contentLeft {
+  display: flex;
+  width: auto;
+  min-width: 35%;
+  height: auto;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-self: center;
+}
+.contentLeft select {
+  height: 22px;
+}
+
+.rowLine {
+  padding: 18px;
+  display: flex;
+  flex-direction: row;
+}
+.rowLine .column {
+  display: flex;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  align-self: center;
+  flex-direction: column;
+}
+
+label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+input[type=submit] {
+  margin: 5%;
+  width: 250px;
+  height: 50px;
+  align-self: center;
+  background-color: #0a3d11;
+  border-radius: 8px;
+  border-width: 0px;
+  transition: 0.4ms;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+}
+input[type=submit]:active {
+  background-color: #00ff22;
+  border: 2px solid white;
+  color: #0a3d11;
+}
+
+input[type=text] {
+  height: 30px;
+  font-size: 16px;
+  padding: 2%;
+  border-radius: 8px;
+  border: 0px transparent;
+}
+input[type=text]:focus {
+  outline: none;
+  box-shadow: 0 0 0 2pt #ff4800;
+}
+
+select {
+  padding: 2%;
+}
+
+textarea {
+  width: 89%;
+  height: 140px;
+  font-size: 22px;
+  resize: none;
+  align-self: center;
+  padding: 5%;
+  border-radius: 8px;
+}
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2pt #ff4800;
+}
 
 /*# sourceMappingURL=style.css.map */
