@@ -4,12 +4,12 @@ import ReturnHeader from "./../returnHeader/index";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import Rating from "@material-ui/lab/Rating";
-import { GroupAdd, AttachMoney,  HowToReg } from "@material-ui/icons";
+import { GroupAdd, AttachMoney, HowToReg } from "@material-ui/icons";
 
 export default class PerfilAnuncio extends Component {
-componentDidMount(){
-  debugger;
-}
+  componentDidMount() {
+    debugger;
+  }
   render() {
     const params = this.props.match.params;
 
@@ -63,7 +63,6 @@ componentDidMount(){
           <Link to={`${params.perfil}/${params.perfil}`}>
             <img src={require("../../image/defaultImg.png")} />
           </Link>
-
         </div>
         <div className="perfilAvaliacao">
           <div className="txtTipoServico">
@@ -75,14 +74,16 @@ componentDidMount(){
             <b>120,00</b>
           </div>
         </div>
-        <div className="buttonsGroup-one">
-          <div className="customButtom-two">
-            <Link to={`/${params.userId}/${params.perfil}/chat`}>
-              <b>Contratar</b>
-              <HowToReg fontSize="large"></HowToReg>
-            </Link>
+        <form>
+          <div className="buttonsGroup-one">
+            <div className="customButtom-two">
+              <Link to={`/${params.userId}/${params.perfil}/chat`}>
+                <b>Contratar</b>
+                <HowToReg fontSize="large"></HowToReg>
+              </Link>
+            </div>
           </div>
-        </div>
+        </form>
         <footer></footer>
       </div>
     );
