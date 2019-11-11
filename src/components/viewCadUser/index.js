@@ -14,6 +14,7 @@ export default class ViewCadUser extends Component {
             email: '',
             birthDate: '',
             fone: '',
+            cep: '',
         }
         this.sendData = this.sendData.bind(this);
     }
@@ -48,6 +49,12 @@ export default class ViewCadUser extends Component {
                         <div className="rowLine">
                             <div className="column">
                                 <input name="password" type="password" size="30" placeholder="Senha" onChange={ e => this.setState({ password: e.target.value }) } required></input>
+                            </div>
+                        </div>
+                        <div className="rowLine">
+                            <div className="column">
+                                <label for="cep">CEP</label>
+                                <InputMask name="cep" mask="999999-999" onChange={ e => this.setState({ fone: e.target.value }) }></InputMask>
                             </div>
                         </div>
                         <div className="rowLine">

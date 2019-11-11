@@ -1,14 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import './style.css'
 
-const classNameRigth = 'line align--start'
-const classNameLeft = 'line align--end'
+const classNameRigth = 'boxMessage align--start'
+const classNameLeft = 'boxMessage align--end'
 const classNameMessage = 'messageBox'
 
-const Messages = ({user, mensagem, userId}) =>
-    <div className={user === "worker" ? classNameLeft : classNameRigth} key={userId}>
-        <div className={classNameMessage}>
-            {mensagem}
+const Messages = ({ user, mensagem, userId }) =>
+    <div className="rowMessage">
+        <div className={user === "worker" ? classNameRigth : classNameLeft} key={userId}>
+            <div className={classNameMessage}>
+                {mensagem}
+            </div>
         </div>
     </div>
 
