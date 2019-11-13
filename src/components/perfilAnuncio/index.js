@@ -31,6 +31,7 @@ export default class PerfilAnuncio extends Component {
             </div>
           </div>
         </div>
+
         <div className="perfilImage">
           <img src={require("../../image/defaultImg.png")}></img>
         </div>
@@ -43,6 +44,7 @@ export default class PerfilAnuncio extends Component {
             </b>
           </p>
         </div>
+
         <div className="perfilAnuncioDesc">
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -54,26 +56,31 @@ export default class PerfilAnuncio extends Component {
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.
         </div>
+
         <div className="perfilAnuncioTxtNome">
           <p>
             <b>Serviços Realizados</b>
           </p>
         </div>
+
         <div className="perfilAnuncioRealizado">
           <Link to={`${params.perfil}/${params.perfil}`}>
             <img src={require("../../image/defaultImg.png")} />
           </Link>
         </div>
+
         <div className="perfilAvaliacao">
           <div className="txtTipoServico">
             <b>Tipo Servico</b>
             Comprança Por Hora
           </div>
+
           <div className="txtValorServico">
             <AttachMoney fontSize="large"></AttachMoney>
             <b>120,00</b>
           </div>
         </div>
+        
         <form>
           <div className="buttonsGroup-one">
             <div className="customButtom-two">
