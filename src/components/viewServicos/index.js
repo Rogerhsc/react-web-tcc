@@ -30,7 +30,7 @@ export default class ViewServicos extends Component {
                   key={i}
                   itenName={v.name}
                   itenImg={"defaultImg.png"}
-                  route={v.id}
+                  route={v.name}
                   userId={this.props.match.params.userId}
                 ></ItensServico>
               );

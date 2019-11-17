@@ -2,12 +2,12 @@ import React, { Component, Form } from 'react'
 import './style.css';
 import { Link } from 'react-router-dom';
 
-import io from 'socket.io-client';
-const socket = io('http://localhost:3002');
+// import io from 'socket.io-client';
+// const socket = io('http://localhost:3002');
 
-socket.on('connect', function(){});
+// socket.on('connect', function(){});
 
-socket.on('newUser', (user) => console.log(user))
+// socket.on('newUser', (user) => console.log(user))
 
 
 export default class LoginScreen extends Component {

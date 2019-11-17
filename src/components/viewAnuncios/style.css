@@ -1,0 +1,7 @@
+.warning--not_found {
+    display: flex;
+    widows: 100%;
+    padding: 5%;
+    color: rgba(253, 185, 121, 0.459);
+    text-align: center;
+}

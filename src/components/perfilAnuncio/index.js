@@ -5,13 +5,54 @@ import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import Rating from "@material-ui/lab/Rating";
 import { GroupAdd, AttachMoney, HowToReg } from "@material-ui/icons";
+import { findServicesById } from '../requests/request'
 
 export default class PerfilAnuncio extends Component {
-  componentDidMount() {
-    debugger;
+
+  constructor(props) {
+    super(props) 
+    this.state = {
+      image: "",
+      name: "",
+      idade: "",
+      description: "",
+      price_type: "",
+      price: "",
+      works_done: [],
+    }
   }
+
+  componentDidMount() {
+    findServicesById(parseInt(this.props.match.params.perfil)).then( data => {
+      this.setState({
+        image: data.user.file[0].path,
+        name: data.user.name,
+        idade: this.calcAge(data.user.birth_date),
+        description: data.description,
+        price_type: data.price_type,
+        price: data.price,
+        works_done: data.user.userworker,
+      })
+    });
+  }
+
+  calcAge(birthDate) {
+    var data = birthDate.split("T")[0];
+
+    var dd = data.split("-")[2];
+    var mm = data.split("-")[1];
+    var yyyy = data.split("-")[0];
+
+    var dataInDate = new Date(`${yyyy},${mm},${dd}`);
+    var timeDate = new Date() - dataInDate.getTime();
+    var newDate = new Date(timeDate);
+
+    return Math.abs(newDate.getUTCFullYear() - 1970);
+  }
+
   render() {
     const params = this.props.match.params;
+    const { description, name, image, idade, price, price_type, works_done } =  this.state;
 
     return (
       <div className="containerMenu">
@@ -33,28 +74,20 @@ export default class PerfilAnuncio extends Component {
         </div>
 
         <div className="perfilImage">
-          <img src={require("../../image/defaultImg.png")}></img>
+          <img src={image}></img>
         </div>
         <div className="perfilAnuncioTxtNome">
           <p>
             <b>
-              Nome do Cidadao
+              {name}
               <br />
-              21 Anos
+              {idade} Anos
             </b>
           </p>
         </div>
 
         <div className="perfilAnuncioDesc">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
+          {description}
         </div>
 
         <div className="perfilAnuncioTxtNome">
@@ -64,20 +97,25 @@ export default class PerfilAnuncio extends Component {
         </div>
 
         <div className="perfilAnuncioRealizado">
-          <Link to={`${params.perfil}/${params.perfil}`}>
-            <img src={require("../../image/defaultImg.png")} />
-          </Link>
+            {
+              works_done.map((v, i) => {  
+                return(
+                  <Link key={i} to={`${params.perfil}/${v.id}`}>
+                    <img src={require("../../image/defaultImg.png")} />
+                  </Link>
+                )
+              })
+            }
         </div>
-
         <div className="perfilAvaliacao">
           <div className="txtTipoServico">
             <b>Tipo Servico</b>
-            Comprança Por Hora
+            {price_type}
           </div>
 
           <div className="txtValorServico">
             <AttachMoney fontSize="large"></AttachMoney>
-            <b>120,00</b>
+            <b>{price}</b>
           </div>
         </div>
         
