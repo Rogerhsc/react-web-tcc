@@ -1,1 +1,1 @@
-export const url = 'http://localhost:3002';
+export const url = 'http://ec2-3-133-117-133.us-east-2.compute.amazonaws.com:3002';

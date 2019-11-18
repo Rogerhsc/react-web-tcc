@@ -10,11 +10,17 @@ export default class ViewAnuncios extends Component {
     super(props);
     this.state = {
       worksList: [],
+      button1: "",
+      button2: "",
+      button3: "",
+      button4: "",
     }
+    this.filterList = this.filterList.bind(this);
   }
 
   componentDidMount(){
     findServicesByType(this.props.match.params).then(data => {
+      debugger;
       this.setState({ worksList: data});
     });
   } 
@@ -39,11 +45,73 @@ export default class ViewAnuncios extends Component {
     })
   }
 
+  filterList(option) {
+    const worksList = this.state.worksList
+    this.setState({
+      button1: "",
+      button2: "",
+      button3: "",
+      button4: "",
+    });
+    switch(option){
+      case "button1":
+          this.setState({
+            button1: "click-option",
+            worksList: worksList.sort( (x , y) => {
+              return x.user.name < y.user.name ? -1 : x.user.name > y.user.name ? 1 : 0;
+            }),
+          })
+          break;
+
+      case "button2":
+        this.setState({
+          button2: "click-option",
+          worksList: worksList.sort( (x , y) => {
+            return x.price - y.price 
+          }),
+        })
+        break;
+
+      case "button3":
+        this.setState({
+          button3: "click-option",
+        })  
+        break;
+
+      case "button4":
+        this.setState({
+          button4: "click-option",
+          worksList: worksList.sort( (x , y) => {
+            return x.specialization < y.specialization ? -1 : x.specialization > y.specialization ? 1 : 0;
+          }),
+        })    
+        break;
+
+        default:
+          console.log(null)
+    }
+    console.log(this.state)
+  }
+
   render() {
     return (
       <div className="container">
         <ReturnHeader lastRoute={`/${this.props.match.params.userId}`}></ReturnHeader>
         <div className="content">
+          <div className="filter">
+            <div className={`option-filter ${this.state.button1}`} onClick={() => this.filterList("button1")}>
+              <b>Nome</b>
+            </div>
+            <div className={`option-filter ${this.state.button2}`} onClick={() => this.filterList("button2")}>
+              <b>Valor</b>
+            </div>
+            <div className={`option-filter ${this.state.button3}`} onClick={() => this.filterList("button3")}>
+              <b>Avaliacao</b>
+            </div>
+            <div className={`option-filter ${this.state.button4}`} onClick={() => this.filterList("button4")}>
+              <b>Especialização</b>
+            </div>
+          </div>
           <div className="rowContent">
             {
               this.state.worksList.length > 0 
@@ -53,7 +121,13 @@ export default class ViewAnuncios extends Component {
                   <ItensAnuncios 
                     adInformation={this.adInformation(v.id)}
                     key={i} 
-                    image={v.user.file[0].path}
+                    image={
+                      v.user.file.length > 0 
+                      ? 
+                        v.user.file[0].path
+                      :
+                        null
+                    }
                     userId={v.user_id}
                     specialization={v.specialization}
                     age={this.calcAge(v.user.birth_date)}

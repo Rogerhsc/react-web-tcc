@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import './style.css'
-import { Link } from 'react-router-dom';import {
-  SentimentSatisfied
-} from "@material-ui/icons/";
+import { Link } from 'react-router-dom';
+
 export default class ItensAnuncios extends Component {
 
   render() {
@@ -13,7 +12,13 @@ export default class ItensAnuncios extends Component {
           pathname: `${this.props.categoria}/${this.props.anuncio}`,
         }} >
           <div className="itensAnunciosImg">
-            <img src={this.props.image}></img>
+            {
+              this.props.image === null 
+              ?
+                <img src={require("../../image/defaultImg.png")}></img>
+              :
+                <img src={this.props.image}></img>
+            }
           </div>
           <div className="itensAnunciosTxt">
             <b>{this.props.user_name}</b><br />
