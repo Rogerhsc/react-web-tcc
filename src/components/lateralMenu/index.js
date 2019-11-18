@@ -5,11 +5,28 @@ import {
   BusinessCenter,
   AccountCircle,
   MonetizationOn,
-  Widgets
+  Widgets,
+  ExitToApp,
+  AssignmentLate
 } from "@material-ui/icons/";
 import { Link } from "react-router-dom";
+import { findUserById } from '../requests/request'
 
 export default class LateralMenu extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      image: "",
+    }
+  }
+
+  componentDidMount(){
+    findUserById(parseInt(this.props.match.params.userId)).then(data => {
+      this.setState({
+        image: data.file[0].path,
+      })
+    });    
+  }
 
   render() {
     return (
@@ -20,7 +37,7 @@ export default class LateralMenu extends Component {
           </Link>
         </div>
         <div className="perfilImage">
-          <img src={require("../../image/defaultImg.png")}></img>
+          <img src={this.state.image}></img>
         </div>
         <Link to={`analitcs`}>
           <div className="menuItem">
@@ -47,6 +64,20 @@ export default class LateralMenu extends Component {
           <div className="menuItem">
             <b>Anunciar</b>
             <MonetizationOn fontSize="large"></MonetizationOn>
+          </div>
+        </Link>
+
+        <Link to={`pendencias`}>
+          <div className="menuItem">
+            <b>Minhas Pendencias</b>
+            <AssignmentLate fontSize="large"></AssignmentLate>
+          </div>
+        </Link>
+
+        <Link to={`/`}>
+          <div className="menuItem">
+            <b>Sair</b>
+            <ExitToApp fontSize="large"></ExitToApp>
           </div>
         </Link>
         <div>

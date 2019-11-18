@@ -4,14 +4,29 @@
     border: 2px solid #cacaca;
     border-radius:12px;
     display: flex;
-    flex-grow: 8;
-    width: 85%;
+    width: 93%;
     height: 120px;
     flex-direction: row;
     margin: 3%;
     transition: 1ms;
     text-decoration: none;
-    
+}
+
+.align-icon_text {
+    display: flex;
+    text-shadow: 1px 1px green;
+}
+
+.green {
+    color: greenyellow;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.red {
+    color: red;
 }
 
 .containerItensAnuncios a {
@@ -45,6 +60,5 @@
 
 .itensAnunciosTxt {
     width: 70%;
-    margin-top: 2%;
     margin-left: 3%;
 }

@@ -80,4 +80,40 @@ const findUserById = async(id_user) => {
     }
 }
 
-export { createUser, sendFile, createAd, findServicesByType, findServicesById, findUserById };
+const createrWork = async({worker_id, contractor_id, service_id, created_at, updated_at}) => {
+    const content = {
+        worker_id,
+        contractor_id,
+        service_id,
+        created_at,
+        updated_at,
+        status: "A",
+    }
+    
+    const res = await axios.post(`${url}/doneWorkers`, content);
+    if(res.status === 200) {
+        window.location.href =  `/${contractor_id}/${service_id}/await`;
+    }else {
+        return (res);
+    }
+}
+
+const findWorks = async() => {
+    
+    const res = axios.get(`${url}/doneWorkers`);
+    if(res.status === 200) {
+        return res.data
+    }else {
+        return (res);
+    }
+}
+const findFile = async(user_id) => {
+    const res = await axios.get(`${url}/file/${user_id}`);
+    if(res.status === 200){
+        return res.data;
+    } else {
+        console.log(res);
+    }
+}
+
+export { createUser, sendFile, createAd, findServicesByType, findServicesById, findUserById, createrWork, findWorks, findFile };

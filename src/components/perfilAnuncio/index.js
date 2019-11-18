@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import Rating from "@material-ui/lab/Rating";
 import { GroupAdd, AttachMoney, HowToReg } from "@material-ui/icons";
-import { findServicesById } from '../requests/request'
+import { findServicesById, createrWork } from '../requests/request'
 
 export default class PerfilAnuncio extends Component {
 
@@ -18,8 +18,14 @@ export default class PerfilAnuncio extends Component {
       description: "",
       price_type: "",
       price: "",
+      phone: "",
+      service_id: this.props.match.params.perfil, 
+      contractor_id: this.props.match.params.userId,
+      worker_id: "",
       works_done: [],
     }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -31,10 +37,30 @@ export default class PerfilAnuncio extends Component {
         description: data.description,
         price_type: data.price_type,
         price: data.price,
+        phone: data.user.phone,
+        worker_id: data.user.id,
         works_done: data.user.userworker,
       })
     });
   }
+
+  nowDate() {
+    const data = new Date();
+
+    const month = data.getMonth() + 1
+    const year = month > 12 ? data.getFullYear() + 1 : data.getFullYear()
+
+    return `${year}-${month > 12 ? 1 : month}-${data.getDate()}`;
+  }
+
+  handleSubmit() {
+    createrWork({...this.state,
+      created_at: this.nowDate(),
+      updated_at: this.nowDate(),
+      worker_id: this.state.worker_id,
+    })
+  }
+
 
   calcAge(birthDate) {
     var data = birthDate.split("T")[0];
@@ -121,8 +147,8 @@ export default class PerfilAnuncio extends Component {
         
         <form>
           <div className="buttonsGroup-one">
-            <div className="customButtom-two">
-              <Link to={`/${params.userId}/${params.perfil}/chat`}>
+            <div className="customButtom-two" onClick={this.handleSubmit}>
+              <Link>
                 <b>Contratar</b>
                 <HowToReg fontSize="large"></HowToReg>
               </Link>

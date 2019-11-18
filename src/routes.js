@@ -12,6 +12,8 @@ import WorkComent from './components/lastWork/index';
 import ViewCadAnuncio from './components/viewCadAnuncio/index';
 import ViewCadUser from './components/viewCadUser/index';
 import ViewPerfil from './components/viewPerfil/index';
+import ViewAwait from './components/viewAwait/index';
+import ViewPendencias from './components/viewPendencias/index'
 
 const Routes = () => (
     <BrowserRouter>
@@ -27,6 +29,8 @@ const Routes = () => (
             <Route exact path="/:userId/:anuncioId/chat" component={Chat}></Route>
             <Route exact path="/signup/user" component={ViewCadUser}></Route>
             <Route exact path="/:userId/perfil/" component={ViewPerfil}></Route>
+            <Route exact path="/:userId/:anuncioId/await" component={ViewAwait}></Route>
+            <Route exact path="/:userId/pendencias" component={ViewPendencias} />
         </Switch>
     </BrowserRouter>
 )
