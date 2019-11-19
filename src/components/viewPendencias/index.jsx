@@ -52,7 +52,7 @@ export default class ViewPendencias extends Component {
     render() {
         return (
             <div className="container">
-                <Header userId={`${this.props.match.params.userId}`} route={`${this.props.match.params.userId}/analitcs`}></Header>
+                <Header userId={`${this.props.match.params.userId}`} route={`${this.props.match.params.userId}/pendencias`}></Header>
                 <div className="contentTituloAnalitics">
                     <div className="title">
                         <b>Pendencias</b>

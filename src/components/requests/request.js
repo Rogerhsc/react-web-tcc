@@ -72,6 +72,13 @@ const findServicesById = async(perfil) => {
     }
 }
 
+const findServicesByUserId = async(user_id) => {
+    const res = await axios.get(`${url}/services/user_id/${user_id}`)
+    if(res.status === 200){
+        return res.data;
+    }
+}
+
 const findUserById = async(id_user) => {
     const res = await axios.get(`${url}/users/${id_user}`)
     
@@ -107,6 +114,7 @@ const findWorks = async() => {
         return (res);
     }
 }
+
 const findFile = async(user_id) => {
     const res = await axios.get(`${url}/file/${user_id}`);
     if(res.status === 200){
@@ -116,4 +124,24 @@ const findFile = async(user_id) => {
     }
 }
 
-export { createUser, sendFile, createAd, findServicesByType, findServicesById, findUserById, createrWork, findWorks, findFile };
+const deleteServiceById = async({userId, serviceId}) => {
+
+    const res = await axios.delete(`${url}/services/${serviceId}`)
+    setTimeout(() => {
+        window.location.href =  `/${userId}/miServices/`;
+    }, 500);
+} 
+
+ const updateService = async(content, serviceId) => {
+    const res = await axios.put(`${url}/services/${serviceId}`, content)
+    setTimeout(() => {
+        window.location.reload();    
+    }, 500);
+ }
+
+ const updateUser = async(content, userId) => {
+    const res = await axios.put(`${url}/users/${userId}`, content)
+    window.location.reload();    
+ }
+
+export { createUser, sendFile, createAd, findServicesByType, findServicesById, findUserById, createrWork, findWorks, findFile, findServicesByUserId, deleteServiceById, updateService, updateUser };

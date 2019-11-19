@@ -8,9 +8,8 @@ export default class ItensAnuncios extends Component {
     const classNormal = `align-icon_text ${this.props.className}`
     return (
       <div className="containerItensAnuncios">
-        <Link to={{
-          pathname: `${this.props.categoria}/${this.props.anuncio}`,
-        }} >
+        
+        <Link to={this.props.route} >
           <div className="itensAnunciosImg">
             {
               this.props.image === null 
@@ -22,6 +21,8 @@ export default class ItensAnuncios extends Component {
           </div>
           <div className="itensAnunciosTxt">
             <b>{this.props.user_name}</b><br />
+            { this.props.type === undefined ? null : `Tipo: ${this.props.type}` }
+            { this.props.type === undefined ? null : <br /> }
             Especialidade: {this.props.specialization}<br />
             Idade: {this.props.age}<br />
             Tipo Cobranca: {this.props.price_type}<br />

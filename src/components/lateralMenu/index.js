@@ -7,7 +7,8 @@ import {
   MonetizationOn,
   Widgets,
   ExitToApp,
-  AssignmentLate
+  AssignmentLate,
+  Work
 } from "@material-ui/icons/";
 import { Link } from "react-router-dom";
 import { findUserById } from '../requests/request'
@@ -23,7 +24,7 @@ export default class LateralMenu extends Component {
   componentDidMount(){
     findUserById(parseInt(this.props.match.params.userId)).then(data => {
       this.setState({
-        image: data.file[0].path,
+        image: data.file > 0 ? data.file[0].path : null,
       })
     });    
   }
@@ -37,7 +38,13 @@ export default class LateralMenu extends Component {
           </Link>
         </div>
         <div className="perfilImage">
-          <img src={this.state.image}></img>
+        {
+              this.state.image === null 
+              ?
+                <img src={require("../../image/defaultImg.png")}></img>
+              :
+                <img src={this.state.image}></img>
+            }
         </div>
         <Link to={`analitcs`}>
           <div className="menuItem">
@@ -77,7 +84,7 @@ export default class LateralMenu extends Component {
         <Link to={`miServices`}>
           <div className="menuItem">
             <b>Meu Serviços</b>
-            <AssignmentLate fontSize="large"></AssignmentLate>
+            <Work fontSize="large"></Work>
           </div>
         </Link>
 

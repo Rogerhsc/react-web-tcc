@@ -15,6 +15,7 @@ import ViewPerfil from './components/viewPerfil/index';
 import ViewAwait from './components/viewAwait/index';
 import ViewPendencias from './components/viewPendencias/index';
 import ViewMiServices from './components/viewMiServices/index'
+import ViewEditService from './components/viewEditService/index'
 
 const Routes = () => (
     <BrowserRouter>
@@ -33,6 +34,7 @@ const Routes = () => (
             <Route exact path="/:userId/:anuncioId/await" component={ViewAwait}></Route>
             <Route exact path="/:userId/pendencias" component={ViewPendencias} />
             <Route exact path="/:userId/miServices/" component={ViewMiServices}></Route>
+            <Route exact path="/:userId/miServices/edit/:serviceId" component={ViewEditService}></Route>
         </Switch>
     </BrowserRouter>
 )

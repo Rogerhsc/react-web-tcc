@@ -14,13 +14,13 @@ export default class ViewAnuncios extends Component {
       button2: "",
       button3: "",
       button4: "",
+      lastOrder: "",
     }
     this.filterList = this.filterList.bind(this);
   }
 
   componentDidMount(){
     findServicesByType(this.props.match.params).then(data => {
-      debugger;
       this.setState({ worksList: data});
     });
   } 
@@ -47,49 +47,62 @@ export default class ViewAnuncios extends Component {
 
   filterList(option) {
     const worksList = this.state.worksList
-    this.setState({
-      button1: "",
-      button2: "",
-      button3: "",
-      button4: "",
-    });
-    switch(option){
-      case "button1":
+    
+    if(this.state.lastOrder === option){
+      this.setState({
+        worksList: worksList.reverse(),
+      })
+    } else {
+      this.setState({
+        button1: "",
+        button2: "",
+        button3: "",
+        button4: "",
+      });
+      
+      switch(option){
+        case "button1":
+            this.setState({
+              button1: "click-option",
+              worksList: worksList.sort( (x , y) => {
+                return x.user.name < y.user.name ? -1 : x.user.name > y.user.name ? 1 : 0;
+              }),
+              lastOrder: option
+            })
+            break;
+  
+        case "button2":
           this.setState({
-            button1: "click-option",
+            button2: "click-option",
             worksList: worksList.sort( (x , y) => {
-              return x.user.name < y.user.name ? -1 : x.user.name > y.user.name ? 1 : 0;
+              return x.price - y.price 
             }),
+            lastOrder: option
           })
           break;
-
-      case "button2":
-        this.setState({
-          button2: "click-option",
-          worksList: worksList.sort( (x , y) => {
-            return x.price - y.price 
-          }),
-        })
-        break;
-
-      case "button3":
-        this.setState({
-          button3: "click-option",
-        })  
-        break;
-
-      case "button4":
-        this.setState({
-          button4: "click-option",
-          worksList: worksList.sort( (x , y) => {
-            return x.specialization < y.specialization ? -1 : x.specialization > y.specialization ? 1 : 0;
-          }),
-        })    
-        break;
-
-        default:
-          console.log(null)
+  
+        case "button3":
+          this.setState({
+            button3: "click-option",
+            lastOrder: option
+          })
+          break;
+  
+        case "button4":
+          this.setState({
+            button4: "click-option",
+            worksList: worksList.sort( (x , y) => {
+              return x.specialization < y.specialization ? -1 : x.specialization > y.specialization ? 1 : 0;
+            }),
+            lastOrder: option
+          })    
+          break;
+  
+          default:
+            console.log(null)
+      }
     }
+
     console.log(this.state)
   }
 
@@ -121,6 +134,7 @@ export default class ViewAnuncios extends Component {
                   <ItensAnuncios 
                     adInformation={this.adInformation(v.id)}
                     key={i} 
+                    route={`${this.props.categoria}/${this.props.anuncio}`}
                     image={
                       v.user.file.length > 0 
                       ? 

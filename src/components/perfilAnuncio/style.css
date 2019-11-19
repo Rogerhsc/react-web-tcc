@@ -150,6 +150,7 @@
     color: white;
     cursor: pointer;
     margin-top: 10%;
+    border: 1px solid white;
 }
 
 .customButtom-one:active a {
@@ -185,6 +186,7 @@
     border-radius: 15px;
     color: white;
     cursor: pointer;
+    border: 1px solid white;
 }
 
 .customButtom-two:active a {
