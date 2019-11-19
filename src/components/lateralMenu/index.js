@@ -74,6 +74,13 @@ export default class LateralMenu extends Component {
           </div>
         </Link>
 
+        <Link to={`miServices`}>
+          <div className="menuItem">
+            <b>Meu Serviços</b>
+            <AssignmentLate fontSize="large"></AssignmentLate>
+          </div>
+        </Link>
+
         <Link to={`/`}>
           <div className="menuItem">
             <b>Sair</b>

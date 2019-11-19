@@ -13,7 +13,8 @@ import ViewCadAnuncio from './components/viewCadAnuncio/index';
 import ViewCadUser from './components/viewCadUser/index';
 import ViewPerfil from './components/viewPerfil/index';
 import ViewAwait from './components/viewAwait/index';
-import ViewPendencias from './components/viewPendencias/index'
+import ViewPendencias from './components/viewPendencias/index';
+import ViewMiServices from './components/viewMiServices/index'
 
 const Routes = () => (
     <BrowserRouter>
@@ -31,6 +32,7 @@ const Routes = () => (
             <Route exact path="/:userId/perfil/" component={ViewPerfil}></Route>
             <Route exact path="/:userId/:anuncioId/await" component={ViewAwait}></Route>
             <Route exact path="/:userId/pendencias" component={ViewPendencias} />
+            <Route exact path="/:userId/miServices/" component={ViewMiServices}></Route>
         </Switch>
     </BrowserRouter>
 )
