@@ -59,7 +59,7 @@ const createUser = async({name, email, password, user_uf, user_city, cel, date, 
 
 const findServicesByType = async({categoria}) => {
 
-    const res = await axios.get(`${url}/services/${categoria}`)
+    const res = await axios.get(`${url}/services/${encodeURIComponent(categoria)}`)
     if(res.status === 200){
         return res.data;
     }

@@ -134,7 +134,7 @@ export default class ViewAnuncios extends Component {
                   <ItensAnuncios 
                     adInformation={this.adInformation(v.id)}
                     key={i} 
-                    route={`${this.props.categoria}/${this.props.anuncio}`}
+                    route={`${this.props.match.params.categoria}/${v.id}`}
                     image={
                       v.user.file.length > 0 
                       ? 

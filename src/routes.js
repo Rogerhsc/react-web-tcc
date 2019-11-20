@@ -32,7 +32,7 @@ const Routes = () => (
             <Route exact path="/signup/user" component={ViewCadUser}></Route>
             <Route exact path="/:userId/perfil/" component={ViewPerfil}></Route>
             <Route exact path="/:userId/:anuncioId/await" component={ViewAwait}></Route>
-            <Route exact path="/:userId/pendencias" component={ViewPendencias} />
+            <Route exact path="/:userId/pendencias/" component={ViewPendencias} />
             <Route exact path="/:userId/miServices/" component={ViewMiServices}></Route>
             <Route exact path="/:userId/miServices/edit/:serviceId" component={ViewEditService}></Route>
         </Switch>

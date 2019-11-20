@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Header from './../header/index';
 import ItensAnuncios from '../itensAnuncios'
-
 import { findWorks, findFile } from '../requests/request'
+import Modal from '../modal/index';
 
 export default class ViewPendencias extends Component {
 
@@ -11,13 +11,19 @@ export default class ViewPendencias extends Component {
         this.state = {
             pending: [],
             solic: [],
-            image: ""
+            image: "",
+            showModal: false,
         }
+
+        this.showModal = this.showModal.bind(this);
+        this.cancelService = this.cancelService.bind(this);
+        this.alterBeginDate = this.alterBeginDate.bind(this);
     }
 
     componentDidMount() {
         const userId = this.props.match.params.userId;
         findWorks().then( res => {
+            debugger;
             this.setState({
                 pending: res.data.filter( v => {
                     return v.userworker.id = userId
@@ -45,13 +51,29 @@ export default class ViewPendencias extends Component {
 
     handleFindFile (user_id) {
         findFile(user_id).then( res => {
-            debugger;
+            debugger
         })
+    }
+    
+    showModal(param) {
+        this.setState({
+            showModal: param
+        })
+    }
+
+    alterBeginDate (date){
+
+    }
+
+    cancelService () {
+
     }
 
     render() {
         return (
+            <React.Fragment>
             <div className="container">
+            
                 <Header userId={`${this.props.match.params.userId}`} route={`${this.props.match.params.userId}/pendencias`}></Header>
                 <div className="contentTituloAnalitics">
                     <div className="title">
@@ -82,6 +104,7 @@ export default class ViewPendencias extends Component {
                                             price={v.service.price}
                                             categoria={this.props.match.params.categoria} 
                                             anuncio={v.service.id} 
+                                            onClick={this.showModal}
                                         />
                                     )
                                 })
@@ -110,6 +133,7 @@ export default class ViewPendencias extends Component {
                                         price={v.service.price}
                                         categoria={this.props.match.params.categoria} 
                                         anuncio={v.service.id} 
+                                        onClick={this.showModal}
                                     />
                                 )
                             })
@@ -118,6 +142,14 @@ export default class ViewPendencias extends Component {
                     </div>
                 </div>
             </div>
+            <Modal 
+                showModal={this.state.showModal}
+                onClose={this.showModal}
+                finalizar={this.alterBeginDate}
+                cancel={this.cancelService}
+            >
+            </Modal>
+            </React.Fragment>
         )
     }
 }

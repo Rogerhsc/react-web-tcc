@@ -7,7 +7,7 @@ export default class ItensAnuncios extends Component {
   render() {
     const classNormal = `align-icon_text ${this.props.className}`
     return (
-      <div className="containerItensAnuncios">
+      <div className="containerItensAnuncios" onClick={() => {  debugger; } }>
         
         <Link to={this.props.route} >
           <div className="itensAnunciosImg">
