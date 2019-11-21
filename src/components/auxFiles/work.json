@@ -3,57 +3,57 @@
         {
             "id": "mecanica",
             "name": "Mecânica",
-            "img": ""
+            "img": "mecanica.png"
         },
         {
             "id": "construcao",
             "name": "Construção",
-            "img": ""
+            "img": "construcao.png"
         },
         {
             "id": "saude",
             "name": "Saúde",
-            "img": ""
+            "img": "saude.png"
         },
         {
             "id": "educacao",
             "name": "Educação",
-            "img": ""
+            "img": "educacao.png"
         },
         {
             "id": "informaticc",
             "name": "Informatica",
-            "img": ""
+            "img": "informatica.png"
         },
         {
             "id": "domesticos",
             "name": "Domésticos",
-            "img": ""
+            "img": "domesticos.png"
         },
         {
             "id": "eletronicos",
             "name": "Eletronicos",
-            "img": ""
+            "img": "eletronicos.png"
         },
         {
             "id": "eletrodosmesticos",
             "name": "Eletrodomesticos",
-            "img": ""
+            "img": "eletrodomesticos.png"
         },
         {
             "id": "eventos",
             "name": "Eventos",
-            "img": ""
+            "img": "eventos.png"
         },
         {
             "id": "social",
             "name": "Social",
-            "img": ""
+            "img": "social.png"
         },
         {
             "id": "outros",
             "name": "Outros",
-            "img": ""
+            "img": "defaultImg.png"
         }
     ]
 }

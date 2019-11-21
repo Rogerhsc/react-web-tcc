@@ -28,9 +28,6 @@ export default class Analitics extends Component {
       const filterArray = res.data.filter(v => {
         return v.worker_id === userId && (v.status === "F")
       })
-      
-      console.log(filterArray)
-      debugger;
       this.setState({
         total: filterArray.map(v => {
           return v.service.price

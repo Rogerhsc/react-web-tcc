@@ -27,8 +27,11 @@
 }
 
 img {
+
+    min-width: 95%;
+    max-width: 95%;
     width: 95%;
-    height: 95%;
+    height: 121px;
     margin: 2%;
 }
 .txtContent {

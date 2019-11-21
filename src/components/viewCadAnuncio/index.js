@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Header from './../header/index';
 import './style.css'
 import Data from '../auxFiles/work.json'
-import { createAd } from '../requests/request'
+import { createAd, findServices } from '../requests/request'
 let work = Data.works;
 export default class ViewCadAnuncio extends Component {
   constructor(props){
@@ -14,13 +14,20 @@ export default class ViewCadAnuncio extends Component {
       price_type: "",
       price: 0.0,
       description: "",
-      created_at: this.nowDate(),
-      updated_at: "",
+      createdAt: this.nowDate(),
+      updatedAt: this.nowDate(),
+      id: ""
     }
 
     this.handleSubmitForm = this.handleSubmitForm.bind(this)
   }
-
+  componentDidMount() {
+    findServices().then( response => {
+      this.setState({
+        id: response.length +1
+      })
+    })
+  }
   nowDate() {
     const data = new Date();
 
@@ -31,7 +38,7 @@ export default class ViewCadAnuncio extends Component {
   }
 
   handleSubmitForm() {
-    createAd(this.state);
+    createAd(this.state)
   }
 
   render() {
@@ -46,7 +53,10 @@ export default class ViewCadAnuncio extends Component {
             <a>Seja seu próprio patrão</a>
           </div>
         </div>
-        <form onSubmit={this.handleSubmitForm}>
+        <form onSubmit={ e => { 
+          e.preventDefault() 
+          this.handleSubmitForm() 
+          }}>
           <div className="rowLine">
             <div className="contentLeft">
               <label for="select">Tipo de serviço</label>

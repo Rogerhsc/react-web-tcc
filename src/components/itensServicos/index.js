@@ -7,7 +7,7 @@ export default class ItensServico extends Component {
       <div className="containerServicos">
         <Link  to={`${this.props.userId}/servicos/${this.props.route}`}>
           <div className="imgContent">
-            <img src={require("../../image/defaultImg.png")}></img>
+            <img src={require(`../../image/${this.props.itenImg}`)}></img>
           </div>
           <div className="txtContent">
             <b>{this.props.itenName}</b>

@@ -1,20 +1,34 @@
 import axios from 'axios';
 import { url } from './url';
 
-const createAd = async ({ user_id, type, specialization, price_type, price, description }) => {
-    debugger;
-    const content = {
-        name: "S",
+const createAd = async({user_id, type, description, specialization, price_type, price, createdAt, updatedAt, id}) => {
+
+    const contenta = {
+        id,
         user_id,
         type,
         description,
         specialization,
         price_type,
-        price
+        price,
+        createdAt,
+        updatedAt
     }
+    debugger;
+    await axios.post(`${url}/services`, contenta).then( (res) => {
+        console.log(res);
+        // window.location.reload();
+    }).catch((error) => {
+        console.log(error);
+    }); 
+}
 
-    const res = await axios.post(`${url}/services`, content);
-    console.log(res)
+const findServices = async() => {
+    const response = await axios.get(`${url}/services`);
+
+    if(response.status === 200) {
+        return response.data
+    }
 }
 
 const sendFile = async (file, id) => {
@@ -89,6 +103,7 @@ const findUserById = async (id_user) => {
 }
 
 const createrWork = async ({ worker_id, contractor_id, service_id, created_at, updated_at }) => {
+    
     const content = {
         worker_id,
         contractor_id,
@@ -146,15 +161,14 @@ const updateWork = async (content, workId) => {
     window.location.reload();
 }
 
-const login = async () => {
-    debugger;
-    const res = await axios.get(`${url}/users`) 
+const login = async(content) => {
+    const res = await axios.post(`${url}/users/login`, content) 
 
     if(res.status === 200) {
-        return res.data;
+        window.location.href =  `/${res.data.user.id}`;
     }else {
         return (res);
     }
 }
 
-export { createUser, sendFile, createAd, findServicesByType, findServicesById, findUserById, createrWork, findWorks, findFile, findServicesByUserId, deleteServiceById, updateService, updateUser, updateWork, login };
+export { createUser, sendFile, createAd, findServicesByType, findServicesById, findUserById, createrWork, findWorks, findFile, findServicesByUserId, deleteServiceById, updateService, updateUser, updateWork, login, findServices }

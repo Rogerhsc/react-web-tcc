@@ -7,7 +7,6 @@ import { ArrowBackIos, ArrowForwardIos } from '@material-ui/icons';
 
 export default class WorkComent extends Component {
     componentDidMount(){
-        debugger;
     }
   render() {
     return (
@@ -28,10 +27,10 @@ export default class WorkComent extends Component {
         </div>
 
         <div className="workComment">
-          Servico topzera memo ta doido TOP 
+          Esta tela nao funciona
         </div>
         <div className="workUser">
-          jascinto pinto
+          Juarez da silva
         </div>
       </div>
     )

@@ -21,38 +21,22 @@ export default class LoginScreen extends Component {
         this.state = {
             email: "",
             password: "",
-            listusers: []
         }
         
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    componentDidMount() {
-        axios.get(`${url}/users`).then(response => {
-            this.setState({
-                listusers: response.data
-            })
-        })
-        window.location.href = `/2`    
-    }
-    
-    handleSubmit() {
-        const logado = this.state.listusers.filter( v => {
-            return ( v.email == this.state.email && v.password == this.state.password )
-        })
 
-        logado.length > 0
-        ?
-            setTimeout(() => {
-                window.location.href = `/${logado.id}`    
-            }, 1000)
-        :
-            alert("usuario ou senha incorretos");
+    handleSubmit() {
+        login(this.state)
     }
 
     render() {
         return (
 
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={ e => {
+                e.preventDefault() 
+                this.handleSubmit()
+                }}>
                 <div className="container">
                     <div clxwassName="contentTituloAnalitics">
                         <div className="title">
@@ -73,7 +57,7 @@ export default class LoginScreen extends Component {
                             placeholder="Insira sua senha"
                             onChange={ e => this.setState({ password: e.target.value })}
                         />
-                        <div onClick={() => this.handleSubmit}>clique aqui</div>
+                        <button type="submit">clique aqui</button>
                         <Link to="/signup/user">Criar conta grátis</Link>
                     </div>
                 </div>
