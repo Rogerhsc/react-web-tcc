@@ -102,7 +102,7 @@ export default class Chat extends Component {
 
     return (
       <div className="container">
-        <ReturnHeader lastRoute={`/${this.props.match.params.userId}/servicos/${this.props.match.params.categoria}/${this.props.match.params.perfil}`}></ReturnHeader>
+        <ReturnHeader lastRoute={`/${this.props.match.params.userId}`}></ReturnHeader>
         <div className="contentMessages">
         {
           messages.map((v , i) => {

@@ -34,6 +34,7 @@ export default class ViewPendencias extends Component {
                     return v.usercontractor.id === userId && ( v.status_contractor === "A" || v.status_contractor == null )
                 })
             })
+            debugger;
         });
     }
 
@@ -99,7 +100,7 @@ export default class ViewPendencias extends Component {
                                     return(
                                         <ItensAnuncios 
                                             key={i} 
-                                            image={this.findFile}
+                                            image={null}
                                             userId={v.userworker.id}
                                             specialization={v.service.specialization}
                                             age={this.calcAge(v.userworker.birth_date)}
@@ -128,7 +129,7 @@ export default class ViewPendencias extends Component {
                                 return(
                                     <ItensAnuncios 
                                         key={i} 
-                                        image={this.state.image}
+                                        image={null}
                                         userId={v.userworker.id}
                                         specialization={v.service.specialization}
                                         age={this.calcAge(v.userworker.birth_date)}
