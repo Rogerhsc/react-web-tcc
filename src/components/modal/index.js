@@ -3,12 +3,14 @@ import { Close } from "@material-ui/icons/";
 import './style.css'
 import { SupervisorAccountTwoTone } from '@material-ui/icons';
 class Modal extends React.Component {
+    
 
     constructor(props){
         super(props)
         this.state = {
             realeaseButton : true,
-            dateExist : false
+            dateExist : false,
+            dateValue: "",
         }
     }
 
@@ -16,7 +18,8 @@ class Modal extends React.Component {
 
         const className = this.props.showModal ? "modal-container modal--start" : "modal-container modal--end"
 
-        const { showModal, onClose, data, dateExist } = this.props;        
+        const { showModal, onClose, data, onClickDel, showDate, status, finishPend, finishSolic } = this.props;      
+    
         return (
             <React.Fragment>
                 {
@@ -27,12 +30,34 @@ class Modal extends React.Component {
                                 <div className="close-icon" onClick={() => onClose(false)}>
                                     <Close />
                                 </div>
-                                <h3>O que ser fazer com este serviços ? </h3>
-                                <input type="date" value={data} disabled={dateExist} onChange={ e => this.setState({ realeaseButton: false })} />
+                                <h3>O que fazer com este serviços ? </h3>
+                                {
+                                    showDate
+                                    ?
+                                        <input type="date" value={data} onChange={ e => this.setState({ realeaseButton: false, dateValue: e.target.value })} />
+                                    :
+                                        null
+                                }
                                 <div className="button-beside">
-                                    <button id="cancel-button" onClick={ () => onClose(false)} value="Cancelar">Cancelar</button>
-    
-                                    <button id="done-button" onClick={ () => onClose(false)} disabled={this.state.realeaseButton} >{dateExist ? "Finalizar" : "Definir"}</button>
+                                    {
+                                        !showDate
+                                        ?
+                                            <button id="cancel-button" onClick={ () => finishSolic({ status: "F" })} disabled={this.state.cancelOff} value="Cancelar">Cancelar</button>
+                                        :
+                                            <button id="cancel-button" onClick={ () => finishSolic({ status: "F" })} disabled={this.state.cancelOff} value="Cancelar">Cancelar</button>
+                                    }
+                                    
+                                    {
+                                        !showDate
+                                        ?
+                                            status === "A"
+                                            ?
+                                                <button id="done-button" onClick={ () => finishSolic({ status: "F" })} disabled={false} >Finalizar</button>
+                                            :
+                                                <button id="done-button" disabled={true} >Finalizar</button>
+                                        :
+                                            <button id="done-button" onClick={ () => finishPend({ start_service: this.state.dateValue })} disabled={this.state.realeaseButton} >Definir</button>
+                                    }
                                 </div>
                             </div>
                         </div>

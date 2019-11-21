@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import './style.css'
 import { Link } from 'react-router-dom';
 
@@ -7,7 +8,7 @@ export default class ItensAnuncios extends Component {
   render() {
     const classNormal = `align-icon_text ${this.props.className}`
     return (
-      <div className="containerItensAnuncios" onClick={() => {  debugger; } }>
+      <div className="containerItensAnuncios" onClick={() => {  this.props.onClick() } }>
         
         <Link to={this.props.route} >
           <div className="itensAnunciosImg">
@@ -43,4 +44,12 @@ export default class ItensAnuncios extends Component {
       </div>
     )
   }
+}
+
+ItensAnuncios.propTypes = {
+  onClick: PropTypes.func
+}
+
+ItensAnuncios.defaultValues = {
+  onClick: () => null
 }

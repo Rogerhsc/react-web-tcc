@@ -130,7 +130,7 @@ const deleteServiceById = async({userId, serviceId}) => {
     setTimeout(() => {
         window.location.href =  `/${userId}/miServices/`;
     }, 500);
-} 
+}
 
  const updateService = async(content, serviceId) => {
     const res = await axios.put(`${url}/services/${serviceId}`, content)
@@ -144,4 +144,9 @@ const deleteServiceById = async({userId, serviceId}) => {
     window.location.reload();    
  }
 
-export { createUser, sendFile, createAd, findServicesByType, findServicesById, findUserById, createrWork, findWorks, findFile, findServicesByUserId, deleteServiceById, updateService, updateUser };
+ const updateWork = async(content, workId) => {
+    const res = await axios.put(`${url}/doneWorkers/${workId}`, content)
+    window.location.reload();    
+ }
+
+export { createUser, sendFile, createAd, findServicesByType, findServicesById, findUserById, createrWork, findWorks, findFile, findServicesByUserId, deleteServiceById, updateService, updateUser, updateWork };
