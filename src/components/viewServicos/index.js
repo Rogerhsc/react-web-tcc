@@ -22,12 +22,32 @@ export default class ViewServicos extends Component {
     this.searchType = this.searchType.bind(this);
   }
 
+  removerAcentos( newStringComAcento ) {
+    var string = newStringComAcento;
+    var mapaAcentosHex 	= {
+      a : /[\xE0-\xE6]/g,
+      e : /[\xE8-\xEB]/g,
+      i : /[\xEC-\xEF]/g,
+      o : /[\xF2-\xF6]/g,
+      u : /[\xF9-\xFC]/g,
+      c : /\xE7/g,
+      n : /\xF1/g
+    };
+  
+    for ( var letra in mapaAcentosHex ) {
+      var expressaoRegular = mapaAcentosHex[letra];
+      string = string.replace( expressaoRegular, letra );
+    }
+  
+    return string;
+  }
+
   searchType() {
     const search = this.state.pesquisa
     const userId = this.props.match.params.userId
     findServices().then( response => {
       const val = response.filter( v => {
-        return v.specialization.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1
+        return this.removerAcentos(v.specialization.toLowerCase()).indexOf(this.removerAcentos(search.toLocaleLowerCase())) > -1
       })
       if(val.length > 0) {
         window.location.href = `${userId}/servicos/${val[0].type}`
