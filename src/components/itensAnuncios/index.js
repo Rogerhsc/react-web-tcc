@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 
 export default class ItensAnuncios extends Component {
 
+
   render() {
     const classNormal = `align-icon_text ${this.props.className}`
     return (
-      <div className="containerItensAnuncios">
+      <div className="containerItensAnuncios" onClick={ this.props.onClick === undefined ? null : () => { this.props.onClick() } }> 
         
         <Link to={this.props.route} >
           <div className="itensAnunciosImg">

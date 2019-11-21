@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Header from './../header/index';
 import ItensAnuncios from '../itensAnuncios'
-
-import { findWorks, findFile } from '../requests/request'
+import { findWorks, findFile, updateWork} from '../requests/request'
+import Modal from '../modal/index';
 
 export default class ViewPendencias extends Component {
 
@@ -11,19 +11,27 @@ export default class ViewPendencias extends Component {
         this.state = {
             pending: [],
             solic: [],
-            image: ""
+            image: "",
+            showModal: false,
+            serviceInModal: "",
+            status: "",
+            renderSolic: "",
+            date: ""
         }
+
+        this.showModal = this.showModal.bind(this);
+        this.alterDoneWork = this.alterDoneWork.bind(this);
     }
 
     componentDidMount() {
-        const userId = this.props.match.params.userId;
+        const userId = parseInt(this.props.match.params.userId)
         findWorks().then( res => {
             this.setState({
                 pending: res.data.filter( v => {
-                    return v.userworker.id = userId
+                    return v.userworker.id === userId && ( v.status_worker === "A" || v.status_worker == null ) && v.status_contractor !== "C"
                 }),
                 solic: res.data.filter( v => {
-                    return v.usercontractor.id = userId
+                    return v.usercontractor.id === userId && ( v.status_contractor === "A" || v.status_contractor == null )
                 })
             })
         });
@@ -45,13 +53,31 @@ export default class ViewPendencias extends Component {
 
     handleFindFile (user_id) {
         findFile(user_id).then( res => {
-            debugger;
+            debugger
         })
+    }
+    
+    showModal(param, renderSolic, status, serviceId, date) {
+
+        console.log(status)
+        this.setState({
+            showModal: param,
+            serviceInModal: serviceId,
+            status,
+            renderSolic,
+            date
+        })
+    }
+
+    alterDoneWork (content){
+        updateWork( content, this.state.serviceInModal)
     }
 
     render() {
         return (
+            <React.Fragment>
             <div className="container">
+            
                 <Header userId={`${this.props.match.params.userId}`} route={`${this.props.match.params.userId}/pendencias`}></Header>
                 <div className="contentTituloAnalitics">
                     <div className="title">
@@ -82,6 +108,7 @@ export default class ViewPendencias extends Component {
                                             price={v.service.price}
                                             categoria={this.props.match.params.categoria} 
                                             anuncio={v.service.id} 
+                                            onClick={ () => this.showModal(true, false, "", v.id, v.start_service)}
                                         />
                                     )
                                 })
@@ -110,6 +137,7 @@ export default class ViewPendencias extends Component {
                                         price={v.service.price}
                                         categoria={this.props.match.params.categoria} 
                                         anuncio={v.service.id} 
+                                        onClick={() => this.showModal(true, true, v.status_worker === null ? v.status : v.status_worker, v.id, v.start_service)}
                                     />
                                 )
                             })
@@ -118,6 +146,15 @@ export default class ViewPendencias extends Component {
                     </div>
                 </div>
             </div>
+            <Modal 
+                showModal={this.state.showModal}
+                onClose={this.showModal}
+                renderSolic={this.state.renderSolic}
+                alterFunction={this.alterDoneWork}
+                status={this.state.status}
+                date={this.state.date}
+            />
+            </React.Fragment>
         )
     }
 }

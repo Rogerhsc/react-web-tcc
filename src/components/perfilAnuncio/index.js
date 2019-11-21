@@ -10,7 +10,7 @@ import { findServicesById, createrWork } from '../requests/request'
 export default class PerfilAnuncio extends Component {
 
   constructor(props) {
-    super(props) 
+    super(props)
     this.state = {
       image: "",
       name: "",
@@ -19,7 +19,7 @@ export default class PerfilAnuncio extends Component {
       price_type: "",
       price: "",
       phone: "",
-      service_id: this.props.match.params.perfil, 
+      service_id: this.props.match.params.perfil,
       contractor_id: this.props.match.params.userId,
       worker_id: "",
       works_done: [],
@@ -29,9 +29,9 @@ export default class PerfilAnuncio extends Component {
   }
 
   componentDidMount() {
-    findServicesById(parseInt(this.props.match.params.perfil)).then( data => {
+    findServicesById(parseInt(this.props.match.params.perfil)).then(data => {
       this.setState({
-        image: data.user.file[0].path,
+        image: data.file > 0 ? data.file[0].path : null,
         name: data.user.name,
         idade: this.calcAge(data.user.birth_date),
         description: data.description,
@@ -54,7 +54,8 @@ export default class PerfilAnuncio extends Component {
   }
 
   handleSubmit() {
-    createrWork({...this.state,
+    createrWork({
+      ...this.state,
       created_at: this.nowDate(),
       updated_at: this.nowDate(),
       worker_id: this.state.worker_id,
@@ -78,7 +79,7 @@ export default class PerfilAnuncio extends Component {
 
   render() {
     const params = this.props.match.params;
-    const { description, name, image, idade, price, price_type, works_done } =  this.state;
+    const { description, name, image, idade, price, price_type, works_done } = this.state;
 
     return (
       <div className="containerMenu">
@@ -100,7 +101,13 @@ export default class PerfilAnuncio extends Component {
         </div>
 
         <div className="perfilImage">
-          <img src={image}></img>
+          {
+            image === null
+              ?
+              <img src={require("../../image/defaultImg.png")}></img>
+              :
+              <img src={image}></img>
+          }
         </div>
         <div className="perfilAnuncioTxtNome">
           <p>
@@ -123,15 +130,15 @@ export default class PerfilAnuncio extends Component {
         </div>
 
         <div className="perfilAnuncioRealizado">
-            {
-              works_done.map((v, i) => {  
-                return(
-                  <Link key={i} to={`${params.perfil}/${v.id}`}>
-                    <img src={require("../../image/defaultImg.png")} />
-                  </Link>
-                )
-              })
-            }
+          {
+            works_done.map((v, i) => {
+              return (
+                <Link key={i} to={`${params.perfil}/${v.id}`}>
+                  <img src={require("../../image/defaultImg.png")} />
+                </Link>
+              )
+            })
+          }
         </div>
         <div className="perfilAvaliacao">
           <div className="txtTipoServico">
@@ -144,7 +151,7 @@ export default class PerfilAnuncio extends Component {
             <b>{price}</b>
           </div>
         </div>
-        
+
         <form>
           <div className="buttonsGroup-one">
             <div className="customButtom-two" onClick={this.handleSubmit}>

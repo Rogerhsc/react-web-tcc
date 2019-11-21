@@ -139,7 +139,6 @@ export default class ViewMiServices extends Component {
                       adInformation={this.adInformation(v.id)}
                       key={i}
                       route={`miServices/edit/${v.id}`}
-                      type={v.type}
                       image={
                         v.user.file.length > 0
                           ?

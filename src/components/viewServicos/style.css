@@ -5,6 +5,9 @@
   justify-content: center;
   flex-direction: column;
   background-color: white;
+  position: absolute;
+  top: 0%;
+  z-index: 1;
 }
 .container footer {
   height: 50px;
