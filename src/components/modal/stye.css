@@ -41,8 +41,6 @@
       width: 104px; }
     .modal-container .button-beside #cancel-button {
       color: #a80c0c; }
-      .modal-container .button-beside #cancel-button:disabled {
-        color: #665353; }
     .modal-container .button-beside #done-button {
       color: #09b309;
       box-shadow: 0px 0px 6px 2px #09b309; }
@@ -75,4 +73,4 @@ input[type="date"] {
 .modal--end {
   display: none; }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=stye.css.map */

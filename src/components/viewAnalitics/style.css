@@ -102,3 +102,36 @@
 .dataBox::-webkit-scrollbar-thumb:active{
     background-color: rgb(27, 27, 27);
 }
+
+.total-recebimentos {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: white;
+    width: 100%;
+    margin-top: 20px;
+    padding-bottom: 7%;
+}
+
+.total-recebimentos h2 {
+    font-size: 35px;
+    color: #ff6600;
+    text-shadow: 1px 1px 1px black;
+    margin-bottom: 1%;
+}
+
+.total-recebimentos span { 
+    font-size: 30px;
+    color: rgb(0, 150,0);
+}
+
+.another-informations {
+    display: flex;
+    width: 90%;
+    background-color: white;
+    padding: 5%;
+    height: auto;
+    font-size: 19px;
+}

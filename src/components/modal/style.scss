@@ -50,6 +50,10 @@
 
         #cancel-button {
             color: rgb(168, 12, 12);
+
+            &:disabled {
+                color: rgb(102, 83, 83);
+            }
         }
 
         #done-button {
