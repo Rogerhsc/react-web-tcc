@@ -6,9 +6,9 @@ const classNameRigth = 'boxMessage align--start'
 const classNameLeft = 'boxMessage align--end'
 const classNameMessage = 'messageBox'
 
-const Messages = ({ user, mensagem, userId }) =>
+const Messages = ({ index, user, mensagem, userId }) =>
     <div className="rowMessage">
-        <div className={user === "worker" ? classNameRigth : classNameLeft} key={userId}>
+        <div className={index % 2 === 0 ? classNameRigth : classNameLeft} key={userId}>
             <div className={classNameMessage}>
                 {mensagem}
             </div>

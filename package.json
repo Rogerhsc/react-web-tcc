@@ -11,12 +11,9 @@
     "@material-ui/icons": "^4.4.3",
     "@material-ui/lab": "^4.0.0-alpha.28",
     "axios": "^0.19.0",
-<<<<<<< HEAD
     "ejs": "^2.7.4",
     "express": "^4.17.1",
-=======
     "moment": "^2.24.0",
->>>>>>> c04a93e53b8233d5bf3d17648fd7d3babf5fdce4
     "prop-types": "^15.7.2",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
