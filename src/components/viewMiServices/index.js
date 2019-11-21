@@ -142,9 +142,9 @@ export default class ViewMiServices extends Component {
                       image={
                         v.user.file.length > 0
                           ?
-                          v.user.file[0].path
+                            v.user.file[0].path.replace("localhost", "ec2-3-133-117-133.us-east-2.compute.amazonaws.com")
                           :
-                          null
+                            null
                       }
                       userId={v.user_id}
                       specialization={v.specialization}

@@ -24,7 +24,7 @@ export default class ViewPerfil extends Component {
   componentDidMount() {
     findUserById(parseInt(this.props.match.params.userId)).then(data => {
       this.setState({
-        image: data.file > 0 ? data.file[0].path : null,
+        image: data.file.length > 0 ? data.file[0].path.replace("localhost", "ec2-3-133-117-133.us-east-2.compute.amazonaws.com") : null,
         name: data.name,
         email: data.email,
         password: data.password,
@@ -46,6 +46,7 @@ export default class ViewPerfil extends Component {
           <Header userId={`${this.props.match.params.userId}`} route={`${this.props.match.params.userId}/perfil`}></Header>
           <div className="perfilImage">
           {
+          
               image === null 
               ?
                 <img src={require("../../image/defaultImg.png")}></img>
@@ -56,7 +57,7 @@ export default class ViewPerfil extends Component {
           <div className="cadUser">
             <div className="rowLine">
               <div className="column">
-                <input name="name" type="text" size="40" value={name}  onChange={e => this.setState({ name: e.target.value })} placeholder="Nome Completo" required></input>
+                <input name="name" type="text" size="20" value={name}  onChange={e => this.setState({ name: e.target.value })} placeholder="Nome Completo" required></input>
               </div>
             </div>
             <div className="rowLine">

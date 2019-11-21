@@ -53,7 +53,7 @@ export default class ViewPendencias extends Component {
 
     handleFindFile (user_id) {
         findFile(user_id).then( res => {
-            debugger
+            debugger;
         })
     }
     
@@ -99,7 +99,7 @@ export default class ViewPendencias extends Component {
                                     return(
                                         <ItensAnuncios 
                                             key={i} 
-                                            image={this.state.image}
+                                            image={this.findFile}
                                             userId={v.userworker.id}
                                             specialization={v.service.specialization}
                                             age={this.calcAge(v.userworker.birth_date)}

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import ReturnHeader from '../returnHeader';
 import { findServicesByType } from '../requests/request'
-
 import './style.css'
 import ItensAnuncios from './../itensAnuncios/index';
 export default class ViewAnuncios extends Component {
@@ -138,7 +137,7 @@ export default class ViewAnuncios extends Component {
                     image={
                       v.user.file.length > 0 
                       ? 
-                        v.user.file[0].path
+                        v.user.file[0].path.replace("localhost", "ec2-3-133-117-133.us-east-2.compute.amazonaws.com")
                       :
                         null
                     }
