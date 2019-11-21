@@ -23,10 +23,16 @@ export default class ViewServicos extends Component {
   }
 
   searchType() {
-    // findServices().then( response => {
-    //   debugger;
-    // })
-    console.log("yes")
+    const search = this.state.pesquisa
+    const userId = this.props.match.params.userId
+    findServices().then( response => {
+      const val = response.filter( v => {
+        return v.specialization.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1
+      })
+      if(val.length > 0) {
+        window.location.href = `${userId}/servicos/${val[0].type}`
+      }
+    })
   }
 
   render() {
